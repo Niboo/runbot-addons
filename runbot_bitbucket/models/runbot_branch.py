@@ -55,9 +55,13 @@ class RunbotBranch(models.Model):
         return {}
 
     @api.multi
+    @bitbucket
     def get_pull_request_url(self, owner, repository, branch):
+        self.ensure_one()
         return BitBucketHosting.get_pull_request_url(owner, repository, branch)
 
     @api.multi
+    @bitbucket
     def get_branch_url(self, owner, repository, pull_number):
+        self.ensure_one()
         return BitBucketHosting.get_branch_url(owner, repository, pull_number)
