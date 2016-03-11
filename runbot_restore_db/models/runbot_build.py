@@ -42,7 +42,7 @@ class RunbotBuild(models.Model):
         if not build.repo_id.db_name:
             return 0
         cmd, mods = build.cmd()
-        cmd += ['-d', '%s-all' % build.dest, '-u all', '--stop-after-init',
+        cmd += ['-d', '%s-all' % build.dest, '-uall', '--stop-after-init',
                 '--max-cron-threads=0']
 
         _logger.info("""Spawn : %s""" % ' '.join(cmd))
